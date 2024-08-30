@@ -15,7 +15,8 @@
  */
 int main() {
     
-    // how to get json
+    try {
+        // how to get json
     std::filesystem::path path = std::filesystem::current_path();
     path /= "sample2.json";
     JsonObjectSPtr root = JsonHelper::parse_json(path.c_str());
@@ -40,6 +41,10 @@ int main() {
     // chaing together to get a value inside a json
     auto obj_2_id = obj_1->get<JsonArraySPtr>("team")->get<JsonObjectSPtr>(0)->get<std::string>("id");
     std::cout << obj_2_id << "\n";
-
+    }
+    catch (const std::runtime_error& e) {
+        std::cerr << "ERROR FOUND with msg: " << e.what() << "\n"; 
+    }
+    
     return 0;
 }
