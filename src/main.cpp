@@ -17,34 +17,34 @@ int main() {
     
     try {
         // how to get json
-    std::filesystem::path path = std::filesystem::current_path();
-    path /= "sample2.json";
-    JsonObjectSPtr root = JsonHelper::parse_json(path.c_str());
+        std::filesystem::path path = std::filesystem::current_path();
+        path /= "sample2.json";
+        JsonObjectSPtr root = JsonHelper::parse_json(path.c_str());
+        
+        // example to get a json property which is a array
+        JsonArraySPtr array = root->get<JsonArraySPtr>("array");
+        JsonObjectSPtr obj2 = root->get<JsonObjectSPtr>("second");
     
-    // example to get a json property which is a array
-    JsonArraySPtr array = root->get<JsonArraySPtr>("array");
-    JsonObjectSPtr obj2 = root->get<JsonObjectSPtr>("second");
-  
-    // example to get a json value inside a array
-    auto val = array->get<std::string>(5);
-    std::cout << val << " \n";
-    
-    path = std::filesystem::current_path();
-    path /= "sample1.json";
-    JsonObjectSPtr root_obj = JsonHelper::parse_json(path.c_str());
+        // example to get a json value inside a array
+        auto val = array->get<std::string>(5);
+        std::cout << val << " \n";
+        
+        path = std::filesystem::current_path();
+        path /= "sample1.json";
+        JsonObjectSPtr root_obj = JsonHelper::parse_json(path.c_str());
 
-    // example to get a json object
-    JsonObjectSPtr obj_1 = root_obj->get<JsonObjectSPtr>("project");
-    auto id = obj_1->get<std::string>("id");
-    std::cout << id << "\n";
+        // example to get a json object
+        JsonObjectSPtr obj_1 = root_obj->get<JsonObjectSPtr>("project");
+        auto id = obj_1->get<std::string>("id");
+        std::cout << id << "\n";
 
-    // chaing together to get a value inside a json
-    auto obj_2_id = obj_1->get<JsonArraySPtr>("team")->get<JsonObjectSPtr>(0)->get<std::string>("id");
-    std::cout << obj_2_id << "\n";
-    }
-    catch (const std::runtime_error& e) {
-        std::cerr << "ERROR FOUND with msg: " << e.what() << "\n"; 
-    }
+        // chaing together to get a value inside a json
+        auto obj_2_id = obj_1->get<JsonArraySPtr>("team")->get<JsonObjectSPtr>(0)->get<std::string>("id");
+        std::cout << obj_2_id << "\n";
+        }
+        catch (const std::runtime_error& e) {
+            std::cerr << "ERROR FOUND with msg: " << e.what() << "\n"; 
+        }
     
     return 0;
 }
