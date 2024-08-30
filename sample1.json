@@ -1,0 +1,112 @@
+{
+    "project": {
+      "id": "PRJ123",
+      "name": "Complex JSON Example",
+      "description": "A project to demonstrate complex JSON structures.",
+      "status": "active",
+      "metadata": {
+        "created": "2024-08-23T12:00:00Z",
+        "lastUpdated": "2024-08-23T18:00:00Z",
+        "tags": ["example", "json", "complex", {"type": "priority", "level": "high"}, ""] 
+      },
+      "team": [
+        {
+          "id": "U001",
+          "name": "Alice Smith",
+          "role": "Project Manager",
+          "contact": {
+            "email": "alice.smith@example.com",
+            "phones": ["555-1234", "555-5678"]
+          }
+        },
+        {
+          "id": "U002",
+          "name": "Bob Johnson",
+          "role": "Lead Developer",
+          "contact": {
+            "email": "bob.johnson@example.com",
+            "phones": ["555-8765"],
+            "social": {
+              "linkedin": "https://linkedin.com/in/bobjohnson",
+              "twitter": "@bobjohnson"
+            }
+          },
+          "skills": ["JavaScript", "Python", "C++"]
+        }
+      ],
+      "tasks": [
+        {
+          "taskID": 1,
+          "title": "Design Database Schema",
+          "dueDate": "2024-09-01",
+          "status": "in-progress",
+          "subtasks": [
+            {
+              "subtaskID": 1.1,
+              "description": "Identify tables",
+              "status": "completed"
+            },
+            {
+              "subtaskID": 1.2,
+              "description": "Define relationships",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "taskID": 2,
+          "title": "Develop REST API",
+          "dueDate": "2024-10-15",
+          "status": "pending",
+          "subtasks": [
+            {
+              "subtaskID": 2.1,
+              "description": "Set up server",
+              "status": "pending",
+              "resources": [
+                "server-config.json",
+                {"documentation": "https://api-docs.example.com/setup"}
+              ]
+            },
+            {
+              "subtaskID": 2.2,
+              "description": "Create endpoints",
+              "status": "pending",
+              "dependencies": [
+                {"taskID": 1, "title": "Design Database Schema"},
+                {"taskID": 2.1, "title": "Set up server"}
+
+              ]
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "milestoneID": "M001",
+          "title": "Phase 1 Completion",
+          "date": "2024-11-01",
+          "goals": [
+            "Complete initial database design",
+            100, 
+            false, 
+            {"description": "Ensure data security compliance", "priority": "high"},
+            ["data encryption", "access control"] 
+          ]
+        }
+      ],
+      "progress": {
+        "totalTasks": 5,
+        "completedTasks": 1,
+        "percentComplete": 20.0,
+        "details": {
+          "phases": ["Planning", "Development", "Testing"],
+          "phaseCompletion": [
+            {"phase": "Planning", "status": "complete"},
+            ["Development", "ongoing"],
+            {"phase": "Testing", "status": "not started"}
+          ]
+        }
+      }
+    }
+}

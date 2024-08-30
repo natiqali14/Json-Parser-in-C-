@@ -1,0 +1,12 @@
+{
+    "first": 1.0,
+    "array" : [1,3.0,-5,-8.0,true, "end"],
+    "second": {
+        "third": true,
+        "fourth": 232323,
+        "fifth": false,
+        "sixth": -20.0,
+        "seventh": -1,
+        "eighth": null
+    }
+}
